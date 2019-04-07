@@ -3,6 +3,7 @@
     <h2>{{ photo.name }}</h2>
     <p>Width: {{ photo.width }}</p>
     <p>Height: {{ photo.height }}</p>
+    <button v-on:click="destroyPhoto(photo)">Destroy photo</button>
     <router-link v-bind:to="`/photos/${photo.id}/edit`">Edit photo</router-link>
     <router-link to="/photos">Back to all photos</router-link>
   </div>
@@ -22,6 +23,12 @@ export default {
       this.photo = response.data;
     });
   },
-  methods: {}
+  methods: {
+    destroyPhoto: function(photo) {
+      axios.delete("/api/photos/" + photo.id).then(response => {
+        this.$router.push("/photos");
+      });
+    }
+  }
 };
 </script>
