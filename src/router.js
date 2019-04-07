@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import PhotosIndex from "./views/PhotosIndex.vue";
+import PhotosNew from "./views/PhotosNew.vue";
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ export default new Router({
       path: "/photos",
       name: "photos-index",
       component: PhotosIndex
+    },
+    {
+      path: "/photos/new",
+      name: "photos-new",
+      component: PhotosNew
     },
     {
       path: "/about",
